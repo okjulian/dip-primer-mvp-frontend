@@ -29,6 +29,8 @@
     "expect": false,
     "inject": false,
     "it": false,
+    "element": false,
+    "by": false,
     "jasmine": false,
     "spyOn": false
   }

@@ -15,6 +15,7 @@ exports.config = {
   // Options to be passed to Jasmine-node.
   jasmineNodeOpts: {
     showColors: true,
+    isVerbose: true,
     defaultTimeoutInterval: 30000
   },
 
