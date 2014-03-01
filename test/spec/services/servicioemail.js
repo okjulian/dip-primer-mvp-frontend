@@ -1,19 +1,37 @@
 'use strict';
 
 describe('Service: ServicioEmail', function () {
+  var ServicioEmail,
+  httpBackend;
 
-  // load the service's module
   beforeEach(module('launchApp'));
 
-  // instantiate service
-  var ServicioEmail;
-  beforeEach(inject(function (_ServicioEmail_) {
+  beforeEach(inject(function (_ServicioEmail_, $injector) {
     ServicioEmail = _ServicioEmail_;
+    httpBackend = $injector.get('$httpBackend');
   }));
 
-  it('deberia tener el metodo enviar', function () {
-    expect(!!ServicioEmail).toBe(true);
-    expect(typeof ServicioEmail.enviar).toBe('function');
+  afterEach(function() {
+    httpBackend.verifyNoOutstandingExpectation();
+    httpBackend.verifyNoOutstandingRequest();
+  });
+
+  it('deberia guardar email en el servidor', function () {
+    var email = 'nombre@example.com';
+    httpBackend.expectPOST('/email', email).respond(201, '');
+    ServicioEmail.enviar(email);
+    expect(ServicioEmail.estado).toBe(null);
+    httpBackend.flush();
+    expect(ServicioEmail.estado).toBe('exito');
+  });
+
+  it('deberia indicar si hubo un error', function () {
+    var email = 'nombre@example.com';
+    httpBackend.expectPOST('/email', email).respond(404, '');
+    ServicioEmail.enviar(email);
+    expect(ServicioEmail.estado).toBe(null);
+    httpBackend.flush();
+    expect(ServicioEmail.estado).toBe('error');
   });
 
 });
