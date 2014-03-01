@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('lauchApp', [
+angular.module('launchApp', [
   'ngCookies',
   'ngResource',
   'ngSanitize',
