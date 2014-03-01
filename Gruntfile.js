@@ -349,9 +349,19 @@ module.exports = function (grunt) {
         configFile: 'karma.conf.js',
         singleRun: true
       }
-    }
+    },
+    protractor: {
+      options: {
+        keepAlive: true,
+        singleRun: false,
+        configFile: 'protractor.conf.js',
+        args: {}
+      },
+      run: {}
+    },
   });
 
+  grunt.loadNpmTasks('grunt-protractor-runner');
 
   grunt.registerTask('serve', function (target) {
     if (target === 'dist') {
