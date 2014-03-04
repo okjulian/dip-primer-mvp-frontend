@@ -2,7 +2,8 @@
 
 describe('Service: ServicioEmail', function () {
   var ServicioEmail,
-  httpBackend;
+  httpBackend,
+  API_URL = 'http://dip-api.herokuapp.com';
 
   beforeEach(module('launchApp'));
 
@@ -18,7 +19,7 @@ describe('Service: ServicioEmail', function () {
 
   it('deberia guardar email en el servidor', function () {
     var email = 'nombre@example.com';
-    httpBackend.expectPOST('/email', email).respond(201, '');
+    httpBackend.expectPOST(API_URL + '/email', {'email': email}).respond(201, '');
     ServicioEmail.enviar(email);
     expect(ServicioEmail.estado).toBe(null);
     httpBackend.flush();
@@ -27,7 +28,7 @@ describe('Service: ServicioEmail', function () {
 
   it('deberia indicar si hubo un error', function () {
     var email = 'nombre@example.com';
-    httpBackend.expectPOST('/email', email).respond(404, '');
+    httpBackend.expectPOST(API_URL + '/email', { 'email': email}).respond(404, '');
     ServicioEmail.enviar(email);
     expect(ServicioEmail.estado).toBe(null);
     httpBackend.flush();

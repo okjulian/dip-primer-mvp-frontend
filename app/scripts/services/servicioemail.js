@@ -7,7 +7,7 @@ angular.module('launchApp')
   this.estado = null;
 
   this.enviar = function (email) {
-    $http.post('/email', email)
+    $http.post('http://dip-api.herokuapp.com/email', { 'email': email })
     .success(exitoCallback)
     .error(errorCallback);
   };
