@@ -25,7 +25,22 @@
     <![endif]-->
 
     <!-- Add your site or application content here -->
-    <div class="container" ng-view=""></div>
+
+    <div class="contenedor" ng-controller="MainCtrl">
+      <div class="cabecera">
+        <img src="images/logo-dip.png">
+        <div class="lema">jsFiddle para leer código</div>
+      </div>
+      <p class="descripcion">El código fuente es la mejor documentación posible. No le tengas miedo. Aprovechalo. Convertite en el Shakespeare del frontend leyendo código en <span class="nombre-proyecto">dip</span>.</p>
+      <em class="instrucciones">¿Suena interesante? Dejanos tu email y sé de los primeros diperos.</em>
+      <div class="llamado-a-accion">
+        <input id="email" class="email" ng-model="email" type="text" ng-hide="enviado" placeholder="Tu dirección de email"/>
+        <span class="envoltura-boton">
+          <button id="vamos" class="boton" ng-click="enviarEmail(email)" ng-hide="enviado">Vamos</button>
+        </span>
+        <div id="confirmacion" ng-show="enviado">Felicitaciones por inscribirte!</div>
+      </div>
+    </div>
 
     <!--[if lt IE 9]>
     <script src="bower_components/es5-shim/es5-shim.js"></script>

@@ -1,3 +1,44 @@
 $icon-font-path: "/bower_components/sass-bootstrap/fonts/";
 
 @import 'sass-bootstrap/lib/bootstrap';
+
+html, body {
+  @include size(100%, 100%);
+}
+
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Josefin Sans', sans-serif;
+}
+
+.contenedor {
+  width: 65%;
+  max-width: 432px;
+  text-align: center;
+}
+
+.cabecera {
+  @extend .page-header;
+}
+
+.nombre-proyecto {
+}
+
+.llamado-a-accion {
+  @extend .input-group;
+}
+
+.email {
+  @extend .form-control;
+}
+
+.envoltura-boton {
+  @extend .input-group-btn;
+}
+
+.boton {
+  @extend .btn;
+  @extend .btn-primary;
+}
