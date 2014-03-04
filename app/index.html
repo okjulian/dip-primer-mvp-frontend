@@ -6,7 +6,7 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title></title>
+    <title>dip | Decodificá HTML, CSS y JavaScript</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width">
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
@@ -27,19 +27,30 @@
     <!-- Add your site or application content here -->
 
     <div class="contenedor" ng-controller="MainCtrl">
+
       <div class="cabecera">
         <img src="images/logo-dip.png">
-        <div class="lema">jsFiddle para leer código</div>
+        <div class="lema">Decodificador de HTML, CSS y JavaScript</div>
       </div>
-      <p class="descripcion">El código fuente es la mejor documentación posible. No le tengas miedo. Aprovechalo. Convertite en el Shakespeare del frontend leyendo código en <span class="nombre-proyecto">dip</span>.</p>
-      <em class="instrucciones">¿Suena interesante? Dejanos tu email y sé de los primeros diperos.</em>
-      <div class="llamado-a-accion">
-        <input id="email" class="email" ng-model="email" type="text" ng-hide="enviado" placeholder="Tu dirección de email"/>
+
+      <ul class="list-unstyled">
+        <li>¿Necesitas leer varias veces el código fuente para entenderlo?</li>
+        <li>¿Querés saber el por qué de cada línea de código?</li>
+        <li>¿Te serviría leer interpretaciones ajenas para entender mejor el código?</li>
+      </ul>
+
+      <p class="descripcion" ng-hide="enviado">Leé código en dip y convertite en un Shakespeare del frontend</p>
+      <p id="confirmacion" ng-show="enviado">Felicitaciones por inscribirte!</p>
+
+      <em class="instrucciones" ng-hide="enviado">¿Suena interesante? Dejanos tu email y sé de los primeros diperos.</em>
+
+      <div class="llamado-a-accion" ng-hide="enviado">
+        <input id="email" class="email" ng-model="email" type="text" placeholder="Tu dirección de email"/>
         <span class="envoltura-boton">
-          <button id="vamos" class="boton" ng-click="enviarEmail(email)" ng-hide="enviado">Vamos</button>
+          <button id="vamos" class="boton" ng-click="enviarEmail(email)">Vamos</button>
         </span>
-        <div id="confirmacion" ng-show="enviado">Felicitaciones por inscribirte!</div>
       </div>
+
     </div>
 
     <!--[if lt IE 9]>

@@ -20,7 +20,7 @@ body {
 }
 
 .cabecera {
-  @extend .page-header;
+  @extend .lead;
 }
 
 .nombre-proyecto {
@@ -41,4 +41,12 @@ body {
 .boton {
   @extend .btn;
   @extend .btn-primary;
+}
+
+.descripcion {
+  @extend .lead;
+}
+
+#confirmacion {
+  @extend .lead;
 }
